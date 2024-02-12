@@ -1,0 +1,27 @@
+//PivotsTZ, Day RangeTZ and vLines:
+  //With required time zone data imported, define parameters for PivotsTZ and vLines.
+  //Calculate the GMT offsets at Ao, Fo, Lo, Ny and Lc used by vLines.  Calculate the pvtDT
+  //used in the Clock when PivotsTZ is on.  Calculate Pivots_GMT_Offset used by PivotsTZ
+  //and Day RangeTZ, and which might depend on one of the GMT offsets used by vLines or on
+  //the alternate External Input for PivotTZ.
+  if(vLines_On  || __PivotsTz_On)
+    {
+    //Make 8am the "reference time" at GMT for London Open
+    GMT_Ref_Time = 8;
+
+    //Find GMT At Ao (Sydney offset from GMT is not constant):
+    //Sydney market local time open changes from 7am to 8am to 9am (NYC making winter DST 
+    //change to GMT offset of 5 hours, later followed by Sydney making DST change) and 
+    //from 9am to 8am to 7am (NYC making summer DST change to GMT offset of 4 hours, later 
+    //followed by Sydney making DST change.  When both locations have made their DST change 
+    //the time difference is 14 hours.
+    Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
+    if(int((UTC-NewYorkDT)/3600)==4)
+      {
+      if(int(SydneyDT/3600 - NewYorkDT/3600) == 14)
+        {
+        //Syndey opens 7am local
+        GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-1;
+        }
+      else
+        {
