@@ -1,0 +1,123 @@
+int start()
+  {
+  //If Indicator is "Off" deinitialize only once, not every tick-------------------------------
+  if(!Indicator_On)
+    {
+    if (!Deinitialized) {deinit(); Deinitialized = true;}
+    return(0);
+    }
+  else {deinit();}
+
+  //Chart Scale Settings-----------------------------------------------------------------------
+  //Set datetimes based on chart scale (for Ask/Bid lines, Pivots & Ranges
+            if(Chart_Scale == 0) {T1=Time[0]+(Period()*60*8); T4=Period()*60*100;}
+    else {if(Chart_Scale == 1) {T1=Time[0]+(Period()*60*4); T4=Period()*60*50;}
+    else {if(Chart_Scale == 2) {T1=Time[0]+(Period()*60*3); T4=Period()*60*25;}
+    else {if(Chart_Scale == 3) {T1=Time[0]+(Period()*60*2); T4=Period()*60*13;}
+    else {if(Chart_Scale == 4) {T1=Time[0]+(Period()*60*1); T4=Period()*60*8;}
+    else {if(Chart_Scale == 5) {T1=Time[0]+(Period()*60*1); T4=Period()*60*5;}  }}}}}
+
+  //Clock, PivotsTZ and vLines-----------------------------------------------------------------
+  //Go to subroutine to get TZ info needed for Clock, PivotsTZ and vLines
+  if(__Show_Clock_in_Panel || __PivotsTz_On || vLines_On)
+    {
+    GetSystemTime(systemTimeArray);
+    UTC = TimeArrayToTime(systemTimeArray);
+    BrokerDT = TimeCurrent();
+    SystemTimeToTzSpecificLocalTime(AucklandTZInfoArray, systemTimeArray, AucklandTimeArray);
+    AucklandDT = TimeArrayToTime(AucklandTimeArray);
+    SystemTimeToTzSpecificLocalTime(SydneyTZInfoArray, systemTimeArray, SydneyTimeArray);
+    SydneyDT   = TimeArrayToTime(SydneyTimeArray);
+    SystemTimeToTzSpecificLocalTime(TokyoTZInfoArray, systemTimeArray, TokyoTimeArray);
+    TokyoDT    = TimeArrayToTime(TokyoTimeArray);
+    SystemTimeToTzSpecificLocalTime(ChinaTZInfoArray, systemTimeArray, ChinaTimeArray);
+    ChinaDT    = TimeArrayToTime(ChinaTimeArray);
+    SystemTimeToTzSpecificLocalTime(JakartaTZInfoArray, systemTimeArray, JakartaTimeArray);
+    JakartaDT  = TimeArrayToTime(JakartaTimeArray);
+    SystemTimeToTzSpecificLocalTime(IndiaTZInfoArray, systemTimeArray, IndiaTimeArray);
+    IndiaDT    = TimeArrayToTime(IndiaTimeArray);
+    SystemTimeToTzSpecificLocalTime(DubaiTZInfoArray, systemTimeArray, DubaiTimeArray);
+    DubaiDT    = TimeArrayToTime(DubaiTimeArray);
+    SystemTimeToTzSpecificLocalTime(MoscowTZInfoArray, systemTimeArray, MoscowTimeArray);
+    MoscowDT   = TimeArrayToTime(MoscowTimeArray);
+    SystemTimeToTzSpecificLocalTime(IsraelTZInfoArray, systemTimeArray, IsraelTimeArray);
+    IsraelDT   = TimeArrayToTime(IsraelTimeArray);
+    SystemTimeToTzSpecificLocalTime(HelsinkiTZInfoArray, systemTimeArray, HelsinkiTimeArray);
+    HelsinkiDT = TimeArrayToTime(HelsinkiTimeArray);
+    SystemTimeToTzSpecificLocalTime(BerlinTZInfoArray, systemTimeArray, BerlinTimeArray);
+    BerlinDT   = TimeArrayToTime(BerlinTimeArray);
+    SystemTimeToTzSpecificLocalTime(LondonTZInfoArray, systemTimeArray, LondonTimeArray);
+    LondonDT   = TimeArrayToTime(LondonTimeArray);
+    SystemTimeToTzSpecificLocalTime(BrazilTZInfoArray, systemTimeArray, BrazilTimeArray);
+    BrazilDT   = TimeArrayToTime(BrazilTimeArray);
+    SystemTimeToTzSpecificLocalTime(NewYorkTZInfoArray, systemTimeArray, NewYorkTimeArray);
+    NewYorkDT  = TimeArrayToTime(NewYorkTimeArray);
+    SystemTimeToTzSpecificLocalTime(CentralTZInfoArray, systemTimeArray, CentralTimeArray);
+    CentralDT  = TimeArrayToTime(CentralTimeArray);
+    SystemTimeToTzSpecificLocalTime(MexicoTZInfoArray, systemTimeArray, MexicoTimeArray);
+    MexicoDT   = TimeArrayToTime(MexicoTimeArray);
+    SystemTimeToTzSpecificLocalTime(MountainTZInfoArray, systemTimeArray, MountainTimeArray);
+    MountainDT = TimeArrayToTime(MountainTimeArray);
+    SystemTimeToTzSpecificLocalTime(PacificTZInfoArray, systemTimeArray, PacificTimeArray);
+    PacificDT  = TimeArrayToTime(PacificTimeArray);
+    GetLocalTime(LocalTimeArray);
+    Local_Time = TimeArrayToTime(LocalTimeArray);
+
+    //Sydney market local time open changes from 7am to 8am to 9am (NYC making winter DST 
+    //change, later followed by Sydney making DST change) and from 9am to 8am to 7am
+    //(NYC making summer DST change, later followed by Sydney making DST change.  When both
+    //locations have made their DST change the time difference is 14 hours.
+    if(int((UTC-NewYorkDT)/3600)==4)
+      {
+      if(int(SydneyDT/3600 - NewYorkDT/3600) == 14) 
+        {
+        SydneyLocalOpenHour  =  7;
+        SydneyLocalCloseHour = 16;
+        }
+      else
+        {
+        SydneyLocalOpenHour  =  8;
+        SydneyLocalCloseHour = 17;
+        }
+      }
+     else if(int((UTC-NewYorkDT)/3600)==5)
+      {
+      if( int(SydneyDT/3600 - NewYorkDT/3600) == 14) 
+        {
+        SydneyLocalOpenHour  =  9;
+        SydneyLocalCloseHour = 18;
+        }
+      else
+        {   
+        SydneyLocalOpenHour  =  8;
+        SydneyLocalCloseHour = 17;
+        }
+      } 
+
+    //Assign "Broker_GMT_Offset" if PivotsTz or vLines are "on".
+    if((vLines_On && Period()<= __Current_Session_Max_TF) ||
+      (__PivotsTz_On && Period()<= __PVT_Max_TF ))
+      {
+           if(Clock_Proxy_Server_Tz_Location=="Auckland") {BrokerDT= AucklandDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Sydney")   {BrokerDT= SydneyDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Tokyo")    {BrokerDT= TokyoDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="China")    {BrokerDT= ChinaDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Jakarta")  {BrokerDT= JakartaDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="India")    {BrokerDT= IndiaDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Dubai")    {BrokerDT= DubaiDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Moscow")   {BrokerDT= MoscowDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Israel")   {BrokerDT= IsraelDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Helsinki") {BrokerDT= HelsinkiDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Frankfurt"){BrokerDT= BerlinDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="London")   {BrokerDT= LondonDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="GMT")      {BrokerDT= UTC;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Brazil")   {BrokerDT= BrazilDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="NewYork")  {BrokerDT= NewYorkDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Central")  {BrokerDT= CentralDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Mexico")   {BrokerDT= MexicoDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Mountain") {BrokerDT= MountainDT;}
+      else{if(Clock_Proxy_Server_Tz_Location=="Pacific")  {BrokerDT= PacificDT;}                                                            
+        }}}}}}}}}}}}}}}}}}
+      Broker_GMT_Offset = int(BrokerDT-UTC)/3600;
+      }                             
+    } 
