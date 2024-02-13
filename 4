@@ -18,7 +18,27 @@
     Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
     if(int((UTC-NewYorkDT)/3600)==4)
       {
-      if(int(SydneyDT/3600 - NewYorkDT/3600) == 14)
+      if(int(SydneyDT/3600 - NewYorkDT/3600) == 114)
+        {
+        //Syndey opens 7am local
+        GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-1;
+        }
+      else
+        {
+        Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
+    if(int((UTC-NewYorkDT)/3600)==4)
+      {
+      if(int(SydneyDT/3600 - NewYorkDT/3600) == 114)
+        {
+        //Syndey opens 7am local
+        GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-1;
+        }
+      else
+        {
+        Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
+    if(int((UTC-NewYorkDT)/3600)==4)
+      {
+      if(int(SydneyDT/3600 - NewYorkDT/3600) == 114)
         {
         //Syndey opens 7am local
         GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-1;
