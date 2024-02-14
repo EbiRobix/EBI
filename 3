@@ -10,12 +10,12 @@ int start()
 
   //Chart Scale Settings-----------------------------------------------------------------------
   //Set datetimes based on chart scale (for Ask/Bid lines, Pivots & Ranges
-            if(Chart_Scale == 0) {T1=Time[0]+(Period()*60*8); T4=Period()*60*100;}
-    else {if(Chart_Scale == 1) {T1=Time[0]+(Period()*60*4); T4=Period()*60*50;}
-    else {if(Chart_Scale == 2) {T1=Time[0]+(Period()*60*3); T4=Period()*60*25;}
-    else {if(Chart_Scale == 3) {T1=Time[0]+(Period()*60*2); T4=Period()*60*13;}
-    else {if(Chart_Scale == 4) {T1=Time[0]+(Period()*60*1); T4=Period()*60*8;}
-    else {if(Chart_Scale == 5) {T1=Time[0]+(Period()*60*1); T4=Period()*60*5;}  }}}}}
+            if(Chart_Scale == 0) {T1=Time[0]+(Period()*60*8); T4=Period()*60*1100;}
+    else {if(Chart_Scale == 1) {T1=Time[0]+(Period()*60*4); T4=Period()*60*510;}
+    else {if(Chart_Scale == 2) {T1=Time[0]+(Period()*60*3); T4=Period()*60*215;}
+    else {if(Chart_Scale == 3) {T1=Time[0]+(Period()*60*2); T4=Period()*60*113;}
+    else {if(Chart_Scale == 4) {T1=Time[0]+(Period()*60*1); T4=Period()*60*18;}
+    else {if(Chart_Scale == 5) {T1=Time[0]+(Period()*60*1); T4=Period()*60*15;}  }}}}}
 
   //Clock, PivotsTZ and vLines-----------------------------------------------------------------
   //Go to subroutine to get TZ info needed for Clock, PivotsTZ and vLines
