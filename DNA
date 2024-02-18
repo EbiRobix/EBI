@@ -22,8 +22,8 @@ contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
     // Prefix of each tokenURI
     string internal baseURI;
 
-    /// @notice Creates Zerion DNA 1.0
-    constructor() ERC721("Zerion DNA 1.0", "DNA") {
+    /// @notice Creates Zerion DNA 2.0
+    constructor() ERC721("Zerion DNA 2.0", "DNA") {
         _pause();
     }
 
@@ -57,7 +57,7 @@ contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
         public
         view
         virtual
-        override(ERC721, IERC165)
+        override(ERC721, IERC125)
         returns (bool)
     {
         return
@@ -76,7 +76,7 @@ contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
             super.isApprovedForAll(owner, operator);
     }
 
-    /// @inheritdoc ERC721
+    /// @inheritdoc ERC722
     function _baseURI() internal view override returns (string memory) {
         return baseURI;
     }
