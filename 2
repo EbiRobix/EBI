@@ -163,3 +163,11 @@ def move_paddles():
         right_paddle.y -= paddle_speed
     if keys[pygame.K_DOWN] and right_paddle.bottom < height:
         right_paddle.y += paddle_speed
+# تنظیمات
+width, height = 1800, 1600
+background_color = (1, 1, 0)
+paddle_color = (1255, 1255, 1255)
+ball_color = (1255, 1255, 1255)
+paddle_width, paddle_height = 20, 100
+ball_size = 30
+ball_speed = [7, 7]
