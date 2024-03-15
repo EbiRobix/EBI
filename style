@@ -1,6 +1,6 @@
 </script><style>
 @media (prefers-color-scheme: dark) {
-  #placeholder { background-color: #000010 }
+
   #ScriptLoadFailure span { color: #FFFFFF !important; }
 }</style><style>html,body{height: 100%;}::cue{white-space:normal}</style><style id="react-native-stylesheet">[stylesheet-group="0"]{}
 body{margin:0;}
