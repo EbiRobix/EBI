@@ -1,5 +1,4 @@
 
-pragma solidity 0.8.13;
 import "./IContractURI.sol";
 import "./IProxyRegistry.sol";
 import "./IZerionDNA.sol";
