@@ -3,7 +3,7 @@
 var _F_toggles_initialize=function(a){("undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:this)._F_toggles=a||[]};_F_toggles_initialize([0x700, ]);
 /*
 
- Copyright The Closure Library Authors.
+
  SPDX-License-Identifier: Apache-2.0
 */
 /*
