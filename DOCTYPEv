@@ -12,7 +12,7 @@
         <meta content="Mint" property="og:site_name"/>
         <meta content="Mint" name="apple-mobile-web-app-title"/>
         <meta content="Mint" name="application-name"/>
-        <meta content="#30bf54" name="msapplication-TileColor"/>
+        
         <meta content="release" name="20240314"/>
         <meta property="og:image" content="https://static.mintchain.io/forest/pic-forest-og-img.png"/>
         <meta name="next-head-count" content="14"/>
