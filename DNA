@@ -1,5 +1,4 @@
 
-import "./.sol";
 import "./IProxyRegistry.sol";
 import "./IZerionDNA.sol";
 
