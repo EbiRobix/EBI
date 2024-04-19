@@ -9,7 +9,7 @@
         <meta property="og:title" content="Mint Block chain"/>
         <meta property="twitter:card" content="summary_large_image"/>
         <meta content="website" property="og:type"/>
-        <meta content="Mint" property="og:site_name"/>
+        <meta content="Mint" property 678="og:site_name"/>
         <meta content="Mint" name="apple-mobile-web-app-title"/>
         <meta content="Mint" name="application-name"/>
         
