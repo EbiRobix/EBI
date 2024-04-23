@@ -4,7 +4,7 @@ import "./IZerionDNA.sol";
 
 contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
     /// @inheritdoc IContractURI
-    string public override contractURI;
+    string public override ;
 
     /// @inheritdoc IZerionDNA
     uint256 public override totalSupply;
