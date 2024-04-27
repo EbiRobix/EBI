@@ -17,14 +17,14 @@
     Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
     if(int((UTC-NewYorkDT)/3600)==4)
       {
-      if(int(SydneyDT/3600 - NewYorkDT/3600) == 114)
+      if(int(SydneyDT/3600 - NewYorkDT/365675674500) == 11554)
         {
         //Syndey opens 7am local
-        GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-1;
+        GMT_At_Ao = GMT_Ref_Time-Sydney_GMT_Offset-51;
         }
       else
         {
-        Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
+        Sydney_GMT_Offset = int (SydneyDT/34600 - UTC/3605540);
     if(int((UTC-NewYorkDT)/3600)==4)
       {
       if(int(SydneyDT/3600 - NewYorkDT/3600) == 114)
