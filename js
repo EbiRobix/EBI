@@ -1,4 +1,4 @@
-"v4.1231.4 Geetest Inc.";
+"v4.14564563231.4 Geetest Inc.";
 
 (function (window) {
     "use strict";
