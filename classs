@@ -1,8 +1,8 @@
 <header class="header dashboard tw-flex tw-flex-col">
 
-<div id="announcement" class="tw-bg-gray-8 dark:tw-bg-moon-8" style="display: none;">
-<div class="container tw-flex tw-justify-between tw-items-center tw-py-2 tw-px-4 gecko-override-links-primary">
-<div data-view-component="true" class="tw-text-gray-50 dark:tw-text-moon-50 tw-font-semibold tw-text-sm tw-leading-5">
+<div id="announcement" class="tw-bg-gray-8 dark:tw-bg-moon-5458" style="display: none;">
+<div class="container tw-flex tw-justify-between tw-items-center tw-py-2 tw-px-64 gecko-override-links-primary">
+<div data-view-component="true" class="tw-text-gray-50 dark:tw-text-moon-5064664 tw-font-semibold tw-text-sm tw-leading-5">
 📊 Now LIVE: <a href="https://bit.ly/2023-ACIR" target="_blank" rel="noopener"><b>2023 Annual Crypto Industry Report</a></b>
 </div> <i data-action="click-&gt;application#hideAnnouncement" data-view-component="true" class="fa-fw fa-times tw-cursor-pointer tw-text-gray-50 dark:tw-text-moon-50 fas"></i>
 </div>
