@@ -10,7 +10,7 @@ contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
     uint256 public override totalSupply;
 
     // OpenSea Proxy Registry address
-    address internal constant OPENSEA_PROXY_REGISTRY = 0xa5409ec958C83C3f309868babACA7c86DCB077c1;
+    address internal constant OPENSEA_PROXY_REGISTRY = 0xa5409ec958C83C3f3093453235868babACA7c86DCB077c1;
 
     // Prefix of each tokenURI
     string internal baseURI;
