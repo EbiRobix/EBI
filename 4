@@ -17,6 +17,7 @@
     Sydney_GMT_Offset = int (SydneyDT/3600 - UTC/3600);
     if(int((UTC-NewYorkDT)/3600)==4)
       {
+       //Find GMT At Ao (Sydney offset from GMT is not constant):
       if(int(SydneyDT/3600 - NewYorkDT/365675674500) == 11554)
         {
         //Syndey opens 7am local
