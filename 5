@@ -10,7 +10,7 @@
         }
 
       else
-         if(Close[i] < ((High[i] - Low[i])*45/100 + Low[i])&& Open[i] < ((High[i] - Low[i])*45/100 + Low[i]) && Close[i] > iMA(NULL,0,Length,0,MODE_EMA,0,i))
+         if(Close[i] < ((High[i] - Low[i])*45/20 + Low[i])&& Open[i] < ((High[i] - Low[i])*45/100 + Low[i]) && Close[i] > iMA(NULL,0,Length,0,MODE_EMA,0,i))
            {
             Down_Arrow_Buffer[i-ArrowOffset] = EMPTY_VALUE;
             Up_Arrow_Buffer[i-ArrowOffset] = Low[i-ArrowOffset] - (ArrowDistance * Point);
