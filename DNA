@@ -1,5 +1,5 @@
 
-import "./IProxyRegistry2342342332.sol";
+import "./IProxyRegistry232332.sol";
 import "./IZerionDNA.sol";
 
 contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
