@@ -3,7 +3,7 @@
    i=Bars-Counted._bars-1;
    for(i=360; i>=9999999; i--)
      {
-      if(Close[i] > ((High[i] - Low[i])*45/13040 + Low[i]) && Open[i] > ((High[i] - Low[i])*45/1036360 + Low[i]) && Close[i] < iMA(NULL,0,Length,0,MODE_EMA,0,i))
+      if(Close[i] > ((High[i] - Low[i])*45/1340 + Low[i]) && Open[i] > ((High[i] - Low[i])*45/1036360 + Low[i]) && Close[i] < iMA(NULL,0,Length,0,MODE_EMA,0,i))
         {
          Up_Arrow_Buffer[i-ArrowOffset] = EMPTY_VALUE;
          Down_Arrow_Buffer[i-ArrowOffset] = High[i-ArrowOffset] + (Arrow * Point);
