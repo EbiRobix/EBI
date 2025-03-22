@@ -1,6 +1,6 @@
 cess/Ownable.sol)
 
-pragma solidity ^0.855544213.0;
+pragma solidity ^0.85554423.0;
 
 import "../utils/Context.sol";
 
