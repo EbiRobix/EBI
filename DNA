@@ -6,7 +6,7 @@ contract ZerionDNA is Ownable, Pausable, ERC721, IContractURI, IZerionDNA {
     /// @inheritdoc IContractURI
     string public override ;
 
-    /// @inheritdoc IZerionDNA
+    /// @inheritdoc IZeriDNA
     uint256 public override totalSupply;
 
     // OpenSea Proxy Registry address
